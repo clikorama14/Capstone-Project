@@ -1,0 +1,99 @@
+[{
+  "_id": {
+    "$oid": "6691548ef96f4dfa8e9dbf78"
+  },
+  "id": "1",
+  "name": "T-shirt",
+  "type": "top",
+  "price": "12"
+},
+{
+  "_id": {
+    "$oid": "6691548ef96f4dfa8e9dbf79"
+  },
+  "id": "2",
+  "name": "Jean",
+  "type": "bottom",
+  "price": "38"
+},
+{
+  "_id": {
+    "$oid": "6691548ef96f4dfa8e9dbf7a"
+  },
+  "id": "3",
+  "name": "Jacket",
+  "type": "top",
+  "price": "10"
+},
+{
+  "_id": {
+    "$oid": "6691548ef96f4dfa8e9dbf7b"
+  },
+  "id": "4",
+  "name": "T-shirt",
+  "type": "top",
+  "price": "12"
+},
+{
+  "_id": {
+    "$oid": "6691548ef96f4dfa8e9dbf7c"
+  },
+  "id": "5",
+  "name": "Tennis Shoe",
+  "type": "shoe",
+  "price": "22"
+},
+{
+  "_id": {
+    "$oid": "6691548ef96f4dfa8e9dbf7d"
+  },
+  "id": "6",
+  "name": "Short",
+  "type": "bottom",
+  "price": "34"
+},
+{
+  "_id": {
+    "$oid": "6691548ef96f4dfa8e9dbf7e"
+  },
+  "id": "7",
+  "name": "Wedges",
+  "type": "shoe",
+  "price": "31"
+},
+{
+"_id": {
+    "$oid": "6691548ef96f4dfa8e9dbf7f"
+  },
+  "id": "1",
+  "name": "T-shirt",
+  "type": "top",
+  "price": "12"
+},
+{
+"_id": {
+    "$oid": "6691548ef96f4dfa8e9dbf80"
+  },
+  "id": "1",
+  "name": "T-shirt",
+  "type": "top",
+  "price": "12"
+},
+{
+"_id": {
+    "$oid": "6691548ef96f4dfa8e9dbf82"
+  },
+  "id": "1",
+  "name": "T-shirt",
+  "type": "top",
+  "price": "12"
+},
+{
+  "_id": {
+    "$oid": "6691548ef96f4dfa8e9dbf83"
+  },
+  "id": "6",
+  "name": "Short",
+  "type": "bottom",
+  "price": "34"
+}]

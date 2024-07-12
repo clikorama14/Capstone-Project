@@ -10,17 +10,20 @@ from sklearn.compose import ColumnTransformer
 from sklearn.metrics import accuracy_score
 import pickle
 
-# Connect to MongoDB
-client = MongoClient(os.getenv('MONGO_DB_URL'))
-db = client.cc # Connect to Database
-collection = db.clothes # Connect to collection
+# # Connect to MongoDB
+# client = MongoClient(os.getenv('MONGO_DB_URL'))
+# db = client.cc # Connect to Database
+# collection = db.clothes # Connect to collection
 
-# Get all the data
-clothes = collection.find({})
-df = pd.DataFrame(list(clothes))
+# # Get all the data
+# clothes = collection.find({})
+# df = pd.DataFrame(list(clothes))
 
-y = df['']
-X = df[['']]
+# Load the dataset
+df = pd.read_json('cc.clothes.json')
+
+y = df['id']
+X = df[['name', 'type', 'price']]
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) #Note: test = selected for traning, test = not selected used for testing how accurate it works
 
@@ -28,11 +31,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 k=5 # Prediction based on k nearest neighbors
 knn = KNeighborsClassifier(n_neighbors=k)
 
-# Train the classifier
-knn.fit(X_train, y_train)
-
 # Define categorical features for one-hot encoding
-categorical_features = ['']
+categorical_features = ['name', 'type', 'price']
 
 # Apply one-hot encoding to categorical features
 preprocessor = ColumnTransformer(
@@ -58,4 +58,7 @@ y_pred = knn.predict(X_test_encoded)
 accuracy = accuracy_score(y_test, y_pred)
 print("Accuracy:", accuracy)
 
-
+# Save data to pipeline
+with open('nearest_neighbor_model.pkl', "wb") as file:
+    pickle.dump(knn, file)
+    print ("Done")
