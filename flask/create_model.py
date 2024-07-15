@@ -9,6 +9,7 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics import accuracy_score
 import pickle
+from flask import Flask, request, jsonify
 
 # # Connect to MongoDB
 # client = MongoClient(os.getenv('MONGO_DB_URL'))
@@ -62,3 +63,32 @@ print("Accuracy:", accuracy)
 with open('nearest_neighbor_model.pkl', "wb") as file:
     pickle.dump(knn, file)
     print ("Done")
+
+
+
+
+# Load the model from disk
+with open('nearest_neighbor_model.pkl', 'rb') as file:
+    model = pickle.load(file)
+
+# Get the request data
+data = {"id": "2", "name": "Polo","type": "top","price": "11"}
+
+# Ensure the data is a list (even if it's just one dictionary)
+if isinstance(data, dict):
+    data = [data]
+
+# Define categorical features for one-hot encoding
+categorical_features = ['name', 'type', 'price']
+
+# Apply one-hot encoding to categorical features
+data = ColumnTransformer(
+    transformers=[
+        ('onehot', OneHotEncoder(), categorical_features)
+    ],
+    remainder='passthrough'
+)
+
+# Make a prediction
+prediction = model.predict(pd.DataFrame(data))
+print("--DEBUG-- ",prediction.toList())

@@ -15,6 +15,8 @@ def predict():
     # Get the request data
     data = request.get_json(force=True)
 
+    
+
     # Ensure the data is a list (even if it's just one dictionary)
     if isinstance(data, dict):
         data = [data]
@@ -23,7 +25,7 @@ def predict():
     categorical_features = ['name', 'type', 'price']
 
     # Apply one-hot encoding to categorical features
-    preprocessor = ColumnTransformer(
+    data = ColumnTransformer(
         transformers=[
             ('onehot', OneHotEncoder(), categorical_features)
         ],
