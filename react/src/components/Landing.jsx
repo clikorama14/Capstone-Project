@@ -33,7 +33,7 @@ const Landing = () => {
                 {
                 clothes.map((product) => (
                     <li key={product._id}>
-                        <Product>{product.name}</Product>
+                        <Product data={product} />
                     </li>
                     ))
             }
