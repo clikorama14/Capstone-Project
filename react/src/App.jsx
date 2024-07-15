@@ -2,34 +2,55 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link
+} from 'react-router-dom';
+import Tops from './components/Tops';
+import Bottoms from './components/Bottoms';
+import Shoes from './components/Shoes';
+import Landing from './components/Landing';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Router>
+
+        <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+
+          <Routes>
+                <Route exact path="/" element={<Landing />}/>
+                <Route exact path="/Tops" element={<Tops />}/>
+                <Route exact path="/Bottoms" element={<Bottoms />} />
+                <Route exact path="/Shoes" element={<Shoes />} />
+          </Routes>
+        </main>
+
+      </Router>
     </>
-  )
-}
+  );
+};
 
 export default App
+
+/*
+Landing Page
+-Featured Products
+-Search Box
+-List of Categories
+
+Product Info Page 
+-Product Image
+-Product Info
+-Price
+-Add to Cart
+
+Checkout Page
+-List of all products added to cart
+-Payment Info
+-Address
+*/
