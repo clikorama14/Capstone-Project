@@ -10,38 +10,24 @@ app = Flask(__name__)
 with open('nearest_neighbor_model.pkl', 'rb') as file:
     model = pickle.load(file)
 
+# Load the preprocessor from disk
+with open('preprocessor.pkl', 'rb') as preprocessor_file:
+    preprocessor = pickle.load(preprocessor_file)
+
 @app.route('/api/predict', methods=['POST'])
 def predict():
-    # Get the request data
     data = request.get_json(force=True)
+    # data = [{"id": "2", "name": "Polo","type": "top","price": 11}] # Uncomment for debugging/testing
 
-    
-
-    # Ensure the data is a list (even if it's just one dictionary)
-    if isinstance(data, dict):
-        data = [data]
-
-    # Define categorical features for one-hot encoding
-    categorical_features = ['name', 'type', 'price']
-
-    # Apply one-hot encoding to categorical features
-    data = ColumnTransformer(
-        transformers=[
-            ('onehot', OneHotEncoder(), categorical_features)
-        ],
-        remainder='passthrough'
-    )
-
-    # Make a prediction
-    prediction = model.predict(pd.DataFrame(data))
-    print("--DEBUG-- ",prediction.toList())
-
-    # Return the prediction
+    input_data = pd.DataFrame(data)
+    encoded = preprocessor.transform(input_data)
+    prediction = model.predict(encoded)
     return jsonify(prediction.tolist())
 
 if __name__ == '__main__':
     # app.debug = True
     app.run(port=5000)
 
-# curl -X POST http://localhost:5000/api/predict -H "Content-Type: application/json" -d '{"id": "2", "name": "Polo","type": "top","price": "11"}'
+
+# curl -X POST http://localhost:5000/api/predict -H "Content-Type: application/json" -d '[{"id": "2", "name": "Polo","type": "top","price": 11}]'
 

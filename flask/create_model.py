@@ -33,12 +33,12 @@ k=5 # Prediction based on k nearest neighbors
 knn = KNeighborsClassifier(n_neighbors=k)
 
 # Define categorical features for one-hot encoding
-categorical_features = ['name', 'type', 'price']
+categorical_features = ['name','type', 'price']
 
 # Apply one-hot encoding to categorical features
 preprocessor = ColumnTransformer(
     transformers=[
-        ('onehot', OneHotEncoder(), categorical_features)
+        ('onehot', OneHotEncoder(handle_unknown='ignore'), categorical_features)
     ],
     remainder='passthrough'
 )
@@ -59,36 +59,12 @@ y_pred = knn.predict(X_test_encoded)
 accuracy = accuracy_score(y_test, y_pred)
 print("Accuracy:", accuracy)
 
-# Save data to pipeline
+# Save preprocessor to pipeline
+with open('preprocessor.pkl', "wb") as preprocessor_file:
+    pickle.dump(preprocessor, preprocessor_file)
+    print ("Done")
+
+# Save model to pipeline
 with open('nearest_neighbor_model.pkl', "wb") as file:
     pickle.dump(knn, file)
     print ("Done")
-
-
-
-
-# Load the model from disk
-with open('nearest_neighbor_model.pkl', 'rb') as file:
-    model = pickle.load(file)
-
-# Get the request data
-data = {"id": "2", "name": "Polo","type": "top","price": "11"}
-
-# Ensure the data is a list (even if it's just one dictionary)
-if isinstance(data, dict):
-    data = [data]
-
-# Define categorical features for one-hot encoding
-categorical_features = ['name', 'type', 'price']
-
-# Apply one-hot encoding to categorical features
-data = ColumnTransformer(
-    transformers=[
-        ('onehot', OneHotEncoder(), categorical_features)
-    ],
-    remainder='passthrough'
-)
-
-# Make a prediction
-prediction = model.predict(pd.DataFrame(data))
-print("--DEBUG-- ",prediction.toList())
