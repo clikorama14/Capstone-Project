@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom'
-import { useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
+import Product from'./Product.jsx'
 
 const Tops = () => {
     const [top, setTop] = useState([]);
@@ -9,18 +8,18 @@ const Tops = () => {
         const fetchData = async () => {
             try {
                 // API calls
-                const response = await fetch(`${import.meta.env.MONGO_DB_URL}/clothes/type=${top}`);
+                const response = await fetch(`http://localhost:3000/api/clothes/type=top`);
 
                 if (!response.ok) {
                     throw new Error('Data could not be fetched!');
                 }
 
                 // set data
-                const top_json = await response.json();
-                setTop(top_json); // assign JSON response to the data variable.
+                const json_response = await response.json();
+                setTop(json_response); // assign JSON response to the data variable.
 
             } catch (error) {
-                console.error('Error fetching characters:', error);
+                console.error('Error fetching tops:', error);
             }
         };
         fetchData();
@@ -29,6 +28,16 @@ const Tops = () => {
     return (
         <>
             <div><strong>Check out our newest Tops!</strong></div>
+
+            <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+                {
+                    top.map((product) => (
+                        <li key={product._id}>
+                            <Product data={product} />
+                        </li>
+                    ))
+                }
+            </div>
         </>
     );
 };
