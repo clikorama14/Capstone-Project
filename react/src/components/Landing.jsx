@@ -4,7 +4,8 @@ import {
     Route,
     Routes,
     Link
-  } from 'react-router-dom';
+} from 'react-router-dom';
+import Product from "./Product";
 
 const Landing = () => {
     return (
@@ -31,7 +32,19 @@ const Landing = () => {
                 </div>
             </nav>
 
-            <div><strong>Welcome to the Clothing Cove!</strong></div>
+            <div>
+                <strong>Welcome to the Clothing Cove!</strong>
+                <p></p>
+            </div>
+
+            <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+                {
+                    Array.from({ length: 6 }).map((_, index) => (
+                        <Product key={index} />
+                    ))
+                }
+            </div>
+
         </>
     );
 };
