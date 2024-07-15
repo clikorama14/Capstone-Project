@@ -9,7 +9,7 @@ import {
 const Bottoms = () => {
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            {/* <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -28,7 +28,7 @@ const Bottoms = () => {
 
                     </div>
                 </div>
-            </nav>
+            </nav> */}
 
             <div><strong>Check out our newest Bottoms!</strong></div>
 
