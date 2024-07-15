@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState, useEffect } from "react";
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -14,7 +14,24 @@ import Shoes from './components/Shoes';
 import Landing from './components/Landing';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [clothes, setClothes] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/clothes`);
+        if (!response.ok) {
+          throw new Error('Data could not be fetched!');
+        }
+        const json_response = await response.json();
+        setClothes(json_response); // assign JSON response to the data variable.
+
+      } catch (error) {
+        console.error('Error fetching clothes:', error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -26,6 +43,9 @@ function App() {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li className="nav-item">
+                  <Link className="nav-link" to="/" >Home</Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to="/Tops" >Tops</Link>
                 </li>
                 <li className="nav-item">
@@ -34,6 +54,10 @@ function App() {
                 <li className="nav-item">
                   <Link className="nav-link" to="/Shoes" >Shoes</Link>
                 </li>
+                {/* <li className="nav-item">
+                  <input type="search" name="search-form" id="search-input" className="search-input"
+                    onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search user" />
+                </li> */}
 
               </ul>
 
@@ -44,7 +68,7 @@ function App() {
         <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 
           <Routes>
-            <Route exact path="/" element={<Landing />} />
+            <Route exact path="/" element={<Landing data={ clothes} />} />
             <Route exact path="/Tops" element={<Tops />} />
             <Route exact path="/Bottoms" element={<Bottoms />} />
             <Route exact path="/Shoes" element={<Shoes />} />

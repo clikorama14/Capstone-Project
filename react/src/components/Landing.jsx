@@ -2,25 +2,7 @@ import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from "react";
 import Product from'./Product.jsx'
 
-const Landing = () => {
-    const [clothes, setClothes] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(`http://localhost:3000/api/clothes`);
-                if (!response.ok) {
-                    throw new Error('Data could not be fetched!');
-                }
-                const json_response = await response.json();
-                setClothes(json_response); // assign JSON response to the data variable.
-
-            } catch (error) {
-                console.error('Error fetching clothes:', error);
-            }
-        };
-        fetchData();
-    }, []);
+const Landing = ({data}) => {
 
     return (
         <>
@@ -31,7 +13,7 @@ const Landing = () => {
 
             <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
                 {
-                clothes.map((product) => (
+                data.map((product) => (
                     <li key={product._id}>
                         <Product data={product} />
                     </li>
