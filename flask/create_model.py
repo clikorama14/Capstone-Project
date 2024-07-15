@@ -51,7 +51,7 @@ X_test_encoded = preprocessor.transform(X_test)
 # Train the classifier
 knn.fit(X_train_encoded, y_train)
 
-# Predict the cities for the test set
+# Predict the test set
 y_pred = knn.predict(X_test_encoded)
 
 # Calculate the accuracy of the model
