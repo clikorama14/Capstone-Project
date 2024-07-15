@@ -12,6 +12,7 @@ import Tops from './components/Tops';
 import Bottoms from './components/Bottoms';
 import Shoes from './components/Shoes';
 import Landing from './components/Landing';
+import Checkout from './components/Checkout';
 
 function App() {
   const [clothes, setClothes] = useState([]);
@@ -54,6 +55,9 @@ function App() {
                 <li className="nav-item">
                   <Link className="nav-link" to="/Shoes" >Shoes</Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/Checkout" >Checkout</Link>
+                </li>
                 {/* <li className="nav-item">
                   <input type="search" name="search-form" id="search-input" className="search-input"
                     onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search user" />
@@ -72,6 +76,7 @@ function App() {
             <Route exact path="/Tops" element={<Tops />} />
             <Route exact path="/Bottoms" element={<Bottoms />} />
             <Route exact path="/Shoes" element={<Shoes />} />
+            <Route exact path="/Checkout" element={<Checkout />} />
           </Routes>
         </main>
 
