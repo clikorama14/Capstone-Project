@@ -1,0 +1,11 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Adjust as needed */
+    gap: 20px; /* Adjust the gap between items */
+}
+
+.card {
+    flex: 1 0 45%; /* Flex basis for responsiveness */
+    max-width: 300px; /* Max width for each card */
+}
