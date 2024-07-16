@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from "react";
-import Product from'./Product.jsx'
+import Display from'./Display.jsx'
 
 const Landing = ({data}) => {
 
@@ -15,7 +15,7 @@ const Landing = ({data}) => {
                 {
                 data.map((product) => (
                     <li key={product._id}>
-                        <Product data={product} />
+                        <Display data={product} />
                     </li>
                     ))
             }

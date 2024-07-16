@@ -70,10 +70,10 @@ function App() {
                   <Link className="nav-link" to="/Shoes" >Shoes</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Checkout" >Checkout</Link>
+                  <Link className="nav-link" to="/Select">Select</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Select">Select</Link>
+                  <Link className="nav-link" to="/Checkout" ><strong>Checkout</strong></Link>
                 </li>
                 {/* <li className="nav-item">
                   <input type="search" name="search-form" id="search-input" className="search-input"

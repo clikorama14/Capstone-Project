@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Product from'./Product.jsx'
+import Display from'./Display.jsx'
 
 const Shoes = () => {
     const [shoe, setShoe] = useState([]);
@@ -33,7 +33,7 @@ const Shoes = () => {
                 {
                     shoe.map((product) => (
                         <li key={product._id}>
-                            <Product data={product} />
+                            <Display data={product} />
                         </li>
                     ))
                 }

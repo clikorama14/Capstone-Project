@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
+import Product from "./Product";
 
 const Checkout = ({cartItems}) => {
 
@@ -13,11 +14,14 @@ const Checkout = ({cartItems}) => {
         <div>
                 <h3>Items in your cart:</h3>
                 <ul>
+                <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
                     {cartItems.map((item, index) => (
                         <li key={index}>
-                            {item.name} - ${item.price}
+                            {/*{item.name} - ${item.price*/}
+                            <Product key={item.id} data={item} />
                         </li>
                     ))}
+                    </div>
                 </ul>
             </div>
         <div className="form-group">

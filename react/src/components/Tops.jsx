@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Product from './Product.jsx'
+import Display from './Display.jsx'
 
-const Tops = ( addToCart ) => {
+const Tops = (addToCart) => {
 
     const [tops, setTop] = useState([]);
 
@@ -33,7 +33,7 @@ const Tops = ( addToCart ) => {
             <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
                 {
                     tops.map((product) => (
-                        <Product key={product.id} data={product} addToCart={addToCart} />
+                        <Display data={product} />
                     ))
                 }
             </div>
