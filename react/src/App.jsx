@@ -85,6 +85,7 @@ function App() {
         <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 
           <Routes>
+            <Route exact path="/" element={<Landing data={clothes} />} />
             <Route exact path="/Tops" element={<Tops />} />
             <Route exact path="/Bottoms" element={<Bottoms />} />
             <Route exact path="/Shoes" element={<Shoes />} />
