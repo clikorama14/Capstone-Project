@@ -13,18 +13,12 @@ import Khakis from '../assets/images/khakis.png';
 const Product = ({ data }) => {
     const [addedToCart, setAddedToCart] = useState(false);
 
-<<<<<<< HEAD
-    const addToCart = () => {
-        setAddedToCart(true)
-    }
-=======
     //    const addToCart = () => {
     //      setAddedToCart(true)
     //}
     const handleAddToCart = () => {
         addToCart(data);
     };
->>>>>>> 359762f3263c80f6fb65523a182b626efc0dc0bb
 
     return (
         <div className="card card-background" style={{ flex: '1', minWidth: '300px', maxWidth: '45%' }}>
