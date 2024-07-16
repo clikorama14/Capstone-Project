@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
 
-const Checkout = () => {
+const Checkout = ({cartItems}) => {
 
     return (
         <div>
@@ -10,6 +10,16 @@ const Checkout = () => {
         <div>
             <p>Enter payment information below.</p>
         </div>
+        <div>
+                <h3>Items in your cart:</h3>
+                <ul>
+                    {cartItems.map((item, index) => (
+                        <li key={index}>
+                            {item.name} - ${item.price}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         <div className="form-group">
             <label htmlFor="userId">Credit Card Number</label>
             <input

@@ -1,16 +1,19 @@
-import React, { useState, useEffect, createContext } from "react";
+import React from 'react';
 
-//export const CartList = createContext();
+const CartList = ({ cartItems }) => {
+    return (
+        <div className="cart-list">
+            <h2>Cart</h2>
+            <ul>
+                {cartItems.map((item, index) => (
+                    <li key={index}>
+                        <div>{item.name}</div>
+                        <div>${item.price}</div>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
 
-const Cart = () => { 
-    const [cartItems, setCartItems] = useState([]);
-
-    const addToCart = (product) => {
-        setCartItems([...cartItems,product])
-    }
-
-    const clearCart = () => {
-    }
-}
-
-export default Cart;
+export default CartList;
