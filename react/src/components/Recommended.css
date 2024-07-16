@@ -1,0 +1,14 @@
+/* Recommended.css */
+
+.recommended-container {
+    display: flex; /* Use flexbox */
+    flex-wrap: wrap; /* Wrap items to next line if they exceed container width */
+    gap: 20px; /* Adjust the space between items */
+  }
+  
+  /* Style for each product (optional) */
+  .product {
+    flex: 1 1 300px; /* Adjust the width of each product item */
+    /* Additional styling as needed */
+  }
+  

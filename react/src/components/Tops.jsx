@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Display from './Display.jsx'
+import './Checkout.css'
 
 const Tops = (addToCart) => {
 
@@ -28,7 +29,7 @@ const Tops = (addToCart) => {
 
     return (
         <>
-            <div><strong>Check out our newest Tops!</strong></div>
+            <div><h2>Check out our newest Tops</h2></div>
 
             <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
                 {

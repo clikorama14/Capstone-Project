@@ -1,4 +1,6 @@
 /* Display.css */
+
+/* App.css */
   
 .card {
     margin: 20px;
@@ -49,10 +51,5 @@
   .btn-primary:hover {
     background-color: #e53935; /* Darker red on hover */
     border-color: #e53935;
-  }
-
-  .container {
-    list-style-type: none; /* Remove default bullet points */
-    padding: 0; /* Optional: Remove default padding */
   }
   

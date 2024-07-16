@@ -66,4 +66,20 @@
   .btn-primary:hover {
     background-color: #0056b3;
   }
+
+  
+h2 {
+  font-family: 'Poppins'; /* Apply Roboto font */
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+  
+}
+
+h4 {
+  font-family: 'Poppins'; /* Apply Roboto font */
+  color:gray;
+  margin-bottom: 10px;
+}
+
   

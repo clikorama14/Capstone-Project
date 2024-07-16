@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Display from'./Display.jsx'
+import './Checkout.css'
 
 const Shoes = () => {
     const [shoe, setShoe] = useState([]);
@@ -27,7 +28,7 @@ const Shoes = () => {
 
     return (
         <>
-            <div><strong>Check out our newest Shoes!</strong></div>
+            <div><h2>Check out our newest Shoes</h2></div>
 
             <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
                 {
