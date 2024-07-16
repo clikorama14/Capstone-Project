@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "669583e2f96f4dfa8e9dbf8e"
+  },
+  "id": "1",
+  "name": "Flats",
+  "type": "shoe",
+  "price": "36"
+},
+{
+  "_id": {
+    "$oid": "669583e2f96f4dfa8e9dbf8f"
+  },
+  "id": "2",
+  "name": "Polo",
+  "type": "top",
+  "price": "11"
+},
+{
+  "_id": {
+    "$oid": "669583e2f96f4dfa8e9dbf90"
+  },
+  "id": "3",
+  "name": "Loafer",
+  "type": "shoe",
+  "price": "28"
+},
+{
+  "_id": {
+    "$oid": "669583e2f96f4dfa8e9dbf91"
+  },
+  "id": "4",
+  "name": "Pant",
+  "type": "bottom",
+  "price": "30"
+},
+{
+  "_id": {
+    "$oid": "669583e2f96f4dfa8e9dbf92"
+  },
+  "id": "5",
+  "name": "Blazer",
+  "type": "top",
+  "price": "13"
+},
+{
+  "_id": {
+    "$oid": "669583e2f96f4dfa8e9dbf93"
+  },
+  "id": "6",
+  "name": "Pant",
+  "type": "bottom",
+  "price": "38"
+},
+{
+  "_id": {
+    "$oid": "669583e2f96f4dfa8e9dbf94"
+  },
+  "id": "7",
+  "name": "Polo",
+  "type": "top",
+  "price": "13"
+},
+{
+  "_id": {
+    "$oid": "669583e2f96f4dfa8e9dbf95"
+  },
+  "id": "8",
+  "name": "Cardigan",
+  "type": "top",
+  "price": "11"
+},
+{
+  "_id": {
+    "$oid": "669583e2f96f4dfa8e9dbf96"
+  },
+  "id": "9",
+  "name": "Blazer",
+  "type": "top",
+  "price": "18"
+},
+{
+  "_id": {
+    "$oid": "669583e2f96f4dfa8e9dbf97"
+  },
+  "id": "10",
+  "name": "Button Down Shirt",
+  "type": "top",
+  "price": "18"
+}]
