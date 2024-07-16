@@ -51,6 +51,7 @@ function App() {
   };
 
   const clearCart = () => {
+    console.log('here')
     setCartItems([]);
     console.log(cartItems);
   };
