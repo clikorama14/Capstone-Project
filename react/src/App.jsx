@@ -15,6 +15,7 @@ import Landing from './components/Landing';
 import Checkout from './components/Checkout';
 //import CartList from './components/CartList';
 import Product from './components/Product';
+import Select from './components/Select';
 
 function App() {
   const [clothes, setClothes] = useState([]);
@@ -71,6 +72,9 @@ function App() {
                 <li className="nav-item">
                   <Link className="nav-link" to="/Checkout" >Checkout</Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/Select">Select</Link>
+                </li>
                 {/* <li className="nav-item">
                   <input type="search" name="search-form" id="search-input" className="search-input"
                     onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search user" />
@@ -89,9 +93,16 @@ function App() {
             <Route exact path="/Tops" element={<Tops addToCart={addToCart}/>} />
             <Route exact path="/Bottoms" element={<Bottoms />} />
             <Route exact path="/Shoes" element={<Shoes />} />
+            <Route exact path="/Select" element={<Select items={clothes} addToCart={addToCart} />} />
             <Route exact path="/Checkout" element={<Checkout cartItems={cartItems}/>} />
           </Routes>
         </main>
+
+        {/*<div className="product-list">
+          {clothes.map(product => (
+            <Product key={product.id} data={product} addToCart={addToCart} />
+          ))}
+        </div>*/}
 
       </Router>
     </>
