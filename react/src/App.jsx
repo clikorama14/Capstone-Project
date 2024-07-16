@@ -6,7 +6,8 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Link
+  Link,
+  NavLink
 } from 'react-router-dom';
 import Tops from './components/Tops';
 import Bottoms from './components/Bottoms';
@@ -57,42 +58,38 @@ function App() {
   return (
     <>
       <Router>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
-          <div className="container-fluid">
-
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div className="container">
+            <Link className="navbar-brand" to="/">Fashion Store</Link>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+              <ul className="navbar-nav">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/" >Home</Link>
+                  <NavLink exact to="/" className="nav-link" activeClassName="active-link">Home</NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Tops" >Tops</Link>
+                  <NavLink to="/Tops" className="nav-link" activeClassName="active-link">Tops</NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Bottoms" >Bottoms</Link>
+                  <NavLink to="/Bottoms" className="nav-link" activeClassName="active-link">Bottoms</NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Shoes" >Shoes</Link>
+                  <NavLink to="/Shoes" className="nav-link" activeClassName="active-link">Shoes</NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Select">Select</Link>
+                  <NavLink to="/Select" className="nav-link" activeClassName="active-link">Select</NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Checkout" ><strong>Checkout</strong></Link>
+                  <NavLink to="/Checkout" className="nav-link" activeClassName="active-link"><strong>Checkout</strong></NavLink>
                 </li>
-                {/* <li className="nav-item">
-                  <input type="search" name="search-form" id="search-input" className="search-input"
-                    onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search user" />
-                </li> */}
-
               </ul>
-
             </div>
           </div>
         </nav>
 
-        <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+        <main className="container mt-4">
 
           <Routes>
             <Route exact path="/" element={<Landing data={clothes}/>} />
