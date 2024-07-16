@@ -1,17 +1,7 @@
 import React, { useState, useEffect, createContext } from "react";
+import Display from "./Display";
 
-const Checkout = ({ cartItems }) => {
-
-    const handelCheckout = () => {
-        const jsonData = JSON.stringify(cartItems, null, 4);
-        fs.writeFile('transaction.json', jsonData, (err) => {
-            if (err) {
-                console.error("Error writing to file:", err);
-            } else {
-                console.log("Datat written to file success!");
-            }
-        })
-    }
+const Checkout = ({ cartItems, clearCart }) => {
 
     return (
         <div>
@@ -24,11 +14,14 @@ const Checkout = ({ cartItems }) => {
             <div>
                 <h3>Items in your cart:</h3>
                 <ul>
-                    {cartItems.map((item, index) => (
-                        <li key={index}>
-                            {item.name} - ${item.price}
-                        </li>
-                    ))}
+                    <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+                        {cartItems.map((item, index) => (
+                            <li key={index}>
+                                {/*{item.name} - ${item.price*/}
+                                <Display key={item.id} data={item} />
+                            </li>
+                        ))}
+                    </div>
                 </ul>
             </div>
             <div className="form-group">
@@ -58,7 +51,9 @@ const Checkout = ({ cartItems }) => {
                     name="userId"
                 />
             </div>
-            <button type="checkout" className="btn btn-primary" onClick={handelCheckout}>Checkout</button>
+            <button type="submit" className="btn btn-primary" onClick={clearCart}>
+                Submit
+            </button>
         </div>
     );
 };

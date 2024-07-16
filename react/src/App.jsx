@@ -46,6 +46,12 @@ function App() {
 
   const addToCart = (product) => {
     setCartItems([...cartItems, product]);
+    console.log(cartItems);
+  };
+
+  const clearCart = () => {
+    setCartItems([]);
+    console.log(cartItems);
   };
 
   return (
@@ -70,10 +76,10 @@ function App() {
                   <Link className="nav-link" to="/Shoes" >Shoes</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Checkout" >Checkout</Link>
+                  <Link className="nav-link" to="/Select">Select</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Select">Select</Link>
+                  <Link className="nav-link" to="/Checkout" ><strong>Checkout</strong></Link>
                 </li>
                 {/* <li className="nav-item">
                   <input type="search" name="search-form" id="search-input" className="search-input"
@@ -93,7 +99,7 @@ function App() {
             <Route exact path="/Bottoms" element={<Bottoms />} />
             <Route exact path="/Shoes" element={<Shoes />} />
             <Route exact path="/Select" element={<Select items={clothes} addToCart={addToCart} />} />
-            <Route exact path="/Checkout" element={<Checkout cartItems={cartItems}/>} />
+            <Route exact path="/Checkout" element={<Checkout cartItems={cartItems} clearCart={clearCart}/>} />
           </Routes>
         </main>
 
