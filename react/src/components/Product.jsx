@@ -10,15 +10,12 @@ import Flats from '../assets/images/flats.png';
 import White_Pants from '../assets/images/white_pants.png';
 import Khakis from '../assets/images/khakis.png';
 
-const Product = ({ data, addToCart }) => {
-    //const [addedToCart, setAddedToCart] = useState(false);
+const Product = ({ data }) => {
+    const [addedToCart, setAddedToCart] = useState(false);
 
-//    const addToCart = () => {
-  //      setAddedToCart(true)
-    //}
-    const handleAddToCart = () => {
-        addToCart(data);
-    };
+    const addToCart = () => {
+        setAddedToCart(true)
+    }
 
     return (
         <div className="card card-background" style={{ flex: '1', minWidth: '300px', maxWidth: '45%' }}>
@@ -41,7 +38,7 @@ const Product = ({ data, addToCart }) => {
                 
             </div>
             <div className="card-button" style={{ paddingBottom: '20px' }}>
-                <button type="addToCart" className="btn btn-primary" onClick={handleAddToCart}>Add to Cart</button>
+                <button type="addToCart" className="btn btn-primary" onClick={addToCart}>Add to Cart</button>
             </div>
         </div>
 

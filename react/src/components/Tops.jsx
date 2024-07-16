@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Product from'./Product.jsx'
+import Product from './Product.jsx'
 
-const Tops = () => {
-    const [top, setTop] = useState([]);
+const Tops = (addToCart) => {
+    const [tops, setTop] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,10 +31,8 @@ const Tops = () => {
 
             <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
                 {
-                    top.map((product) => (
-                        <li key={product._id}>
-                            <Product data={product} />
-                        </li>
+                    tops.map((product) => (
+                        <Product key={product.id} data={product} addToCart={addToCart} />
                     ))
                 }
             </div>
