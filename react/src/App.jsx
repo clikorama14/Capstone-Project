@@ -58,7 +58,7 @@ function App() {
   return (
     <>
       <Router>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container">
             <Link className="navbar-brand" to="/">Fashion Store</Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,27 +89,27 @@ function App() {
           </div>
         </nav>
 
-        <main className="container mt-4">
-
+        <main className="container mt-4 main">
           <Routes>
-            <Route exact path="/" element={<Landing data={clothes}/>} />
-            <Route exact path="/Tops" element={<Tops addToCart={addToCart}/>} />
+            <Route exact path="/" element={<Landing data={clothes} />} />
+            <Route exact path="/Tops" element={<Tops addToCart={addToCart} />} />
             <Route exact path="/Bottoms" element={<Bottoms />} />
             <Route exact path="/Shoes" element={<Shoes />} />
             <Route exact path="/Select" element={<Select items={clothes} addToCart={addToCart} />} />
-            <Route exact path="/Checkout" element={<Checkout cartItems={cartItems} clearCart={clearCart}/>} />
+            <Route exact path="/Checkout" element={<Checkout cartItems={cartItems} clearCart={clearCart} />} />
           </Routes>
         </main>
 
-        {/*<div className="product-list">
-          {clothes.map(product => (
-            <Product key={product.id} data={product} addToCart={addToCart} />
-          ))}
-        </div>*/}
+        <footer className="footer">
+          <div className="container">
+            <p>&copy; 2024 Clothing Cove. All rights reserved.</p>
+          </div>
+        </footer>
 
       </Router>
     </>
   );
+
 };
 
 export default App

@@ -1,59 +1,72 @@
-import React, { useState, useEffect, createContext } from "react";
+import React from "react";
 import Display from "./Display";
+import "./Checkout.css"; // Import Checkout-specific CSS
 
 const Checkout = ({ cartItems, clearCart }) => {
-
     return (
-        <div>
-            <div>
-                <h2>Thank you for shopping with Clothing Cove!</h2>
+        <div className="checkout-container">
+            <div className="checkout-header">
+                <h2 className="checkout-title">Thank you for shopping with Clothing Cove!</h2>
             </div>
-            <div>
-                <p>Enter payment information below.</p>
+
+            <div className="checkout-items">
+                <h3 className="checkout-subtitle">Item(s) in your cart:</h3>
+                <div className="card-container">
+                    {cartItems.map((item, index) => (
+                        <Display key={item.id} data={item} />
+                    ))}
+                </div>
             </div>
-            <div>
-                <h3>Items in your cart:</h3>
-                <ul>
-                    <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-                        {cartItems.map((item, index) => (
-                            <li key={index}>
-                                {/*{item.name} - ${item.price*/}
-                                <Display key={item.id} data={item} />
-                            </li>
-                        ))}
+
+            <div className="checkout-payment">
+                <p className="checkout-payment-info">Enter payment information below.</p>
+
+                <form>
+                    <div className="form-group">
+                        <label htmlFor="creditCardNumber">Credit Card Number</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="creditCardNumber"
+                            name="creditCardNumber"
+                            placeholder="Enter your credit card number"
+                            required
+                        />
                     </div>
-                </ul>
+                    <div className="form-row">
+                        <div className="form-group col-md-6">
+                            <label htmlFor="expirationDate">Expiration Date</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="expirationDate"
+                                name="expirationDate"
+                                placeholder="MM/YYYY"
+                                required
+                            />
+                        </div>
+                        <div className="form-group col-md-6">
+                            <label htmlFor="securityCode">Security Code</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="securityCode"
+                                name="securityCode"
+                                placeholder="CVV"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div><p></p></div>
+                    <button type="submit" className="btn btn-primary" onClick={clearCart}>
+                        Submit
+                    </button>
+
+                </form>
             </div>
-            <div className="form-group">
-                <label htmlFor="userId">Credit Card Number</label>
-                <input
-                    type="text"
-                    className="form-control"
-                    id="userId"
-                    name="userId"
-                />
+            <div className="checkout-items">
+                <h3 className="checkout-subtitle">Here are some other products you might be interested in!</h3>
             </div>
-            <div className="form-group">
-                <label htmlFor="userId">Expiration Date</label>
-                <input
-                    type="text"
-                    className="form-control"
-                    id="userId"
-                    name="userId"
-                />
-            </div>
-            <div className="form-group">
-                <label htmlFor="userId">Security Code</label>
-                <input
-                    type="text"
-                    className="form-control"
-                    id="userId"
-                    name="userId"
-                />
-            </div>
-            <button type="submit" className="btn btn-primary" onClick={clearCart}>
-                Submit
-            </button>
         </div>
     );
 };
