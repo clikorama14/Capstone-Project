@@ -1,6 +1,7 @@
 import React from "react";
 import Display from "./Display";
 import "./Checkout.css"; // Import Checkout-specific CSS
+import Recommended from "./Recommended";
 
 const Checkout = ({ cartItems, clearCart }) => {
     return (
@@ -66,6 +67,9 @@ const Checkout = ({ cartItems, clearCart }) => {
             </div>
             <div className="checkout-items">
                 <h3 className="checkout-subtitle">Here are some other products you might be interested in!</h3>
+            </div>
+            <div>
+                <Recommended />
             </div>
         </div>
     );
