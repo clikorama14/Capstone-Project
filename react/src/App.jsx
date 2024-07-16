@@ -46,6 +46,12 @@ function App() {
 
   const addToCart = (product) => {
     setCartItems([...cartItems, product]);
+    console.log(cartItems);
+  };
+
+  const clearCart = () => {
+    setCartItems([]);
+    console.log(cartItems);
   };
 
   return (
@@ -94,7 +100,7 @@ function App() {
             <Route exact path="/Bottoms" element={<Bottoms />} />
             <Route exact path="/Shoes" element={<Shoes />} />
             <Route exact path="/Select" element={<Select items={clothes} addToCart={addToCart} />} />
-            <Route exact path="/Checkout" element={<Checkout cartItems={cartItems}/>} />
+            <Route exact path="/Checkout" element={<Checkout cartItems={cartItems} clearCart={clearCart}/>} />
           </Routes>
         </main>
 
