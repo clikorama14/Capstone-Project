@@ -36,7 +36,7 @@ for item in database:
         recommend_value =1
     else:
         recommend_value =0
-    result.append({"id":item['id'],"name":item['name'],"type":item['type'],"recommended": recommend_value})
+    result.append({"id":item['id'],"name":item['name'],"type":item['type'],"price":item['price'],"recommended": recommend_value})
 
 
 # Load the dataset
@@ -85,8 +85,12 @@ result = df.to_json(orient="records")
 # # Call function generate clothes and dump info to json
 # json_object = json.dumps(result, indent=4)
 
+# result = df[df['recommended']==1][['id','name','type','price']].values.tolist()
+# result = result.to_json(orient='records')
+print (result)
+
 # Save data to json file
-with open("../react/recommended.json", "w") as file:
+with open("../react/src/recommended.json", "w") as file:
     file.write(result)
     print ("Done")
 
