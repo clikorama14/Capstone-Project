@@ -1,0 +1,62 @@
+[
+    {
+        "id": "1",
+        "name": "Flats",
+        "type": "shoe",
+        "price": "36"
+    },
+    {
+        "id": "2",
+        "name": "Polo",
+        "type": "top",
+        "price": "11"
+    },
+    {
+        "id": "3",
+        "name": "Loafer",
+        "type": "shoe",
+        "price": "28"
+    },
+    {
+        "id": "4",
+        "name": "Pant",
+        "type": "bottom",
+        "price": "30"
+    },
+    {
+        "id": "5",
+        "name": "Blazer",
+        "type": "top",
+        "price": "13"
+    },
+    {
+        "id": "6",
+        "name": "Pant",
+        "type": "bottom",
+        "price": "38"
+    },
+    {
+        "id": "7",
+        "name": "Polo",
+        "type": "top",
+        "price": "13"
+    },
+    {
+        "id": "8",
+        "name": "Cardigan",
+        "type": "top",
+        "price": "11"
+    },
+    {
+        "id": "9",
+        "name": "Blazer",
+        "type": "top",
+        "price": "18"
+    },
+    {
+        "id": "10",
+        "name": "Button Down Shirt",
+        "type": "top",
+        "price": "18"
+    }
+]

@@ -36,30 +36,12 @@
 },
 {
   "_id": {
-    "$oid": "6691548ef96f4dfa8e9dbf7c"
-  },
-  "id": "5",
-  "name": "Tennis Shoe",
-  "type": "shoe",
-  "price": "22"
-},
-{
-  "_id": {
     "$oid": "6691548ef96f4dfa8e9dbf7d"
   },
   "id": "6",
   "name": "Short",
   "type": "bottom",
   "price": "34"
-},
-{
-  "_id": {
-    "$oid": "6691548ef96f4dfa8e9dbf7e"
-  },
-  "id": "7",
-  "name": "Wedges",
-  "type": "shoe",
-  "price": "31"
 },
 {
 "_id": {

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Product from './Product.jsx'
 
-const Tops = (addToCart) => {
+const Tops = ( addToCart ) => {
+
     const [tops, setTop] = useState([]);
 
     useEffect(() => {

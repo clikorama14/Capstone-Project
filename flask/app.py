@@ -18,10 +18,15 @@ with open('preprocessor.pkl', 'rb') as preprocessor_file:
 def predict():
     data = request.get_json(force=True)
     # data = [{"id": "2", "name": "Polo","type": "top","price": 11}] # Uncomment for debugging/testing
+    
+    # # Load the data from disk
+    # with open('database.json', 'rb') as file:
+    #     data = pickle.load(file)
 
     input_data = pd.DataFrame(data)
     encoded = preprocessor.transform(input_data)
     prediction = model.predict(encoded)
+    print(prediction.tolist())
     return jsonify(prediction.tolist())
 
 if __name__ == '__main__':

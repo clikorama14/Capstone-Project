@@ -21,10 +21,10 @@ from flask import Flask, request, jsonify
 # df = pd.DataFrame(list(clothes))
 
 # Load the dataset
-df = pd.read_json('cc.clothes.json')
+df = pd.read_json('test.json')
 
 y = df['id']
-X = df[['name', 'type', 'price']]
+X = df[['type']]
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) #Note: test = selected for traning, test = not selected used for testing how accurate it works
 
@@ -33,7 +33,7 @@ k=5 # Prediction based on k nearest neighbors
 knn = KNeighborsClassifier(n_neighbors=k)
 
 # Define categorical features for one-hot encoding
-categorical_features = ['name','type', 'price']
+categorical_features = ['type']
 
 # Apply one-hot encoding to categorical features
 preprocessor = ColumnTransformer(
