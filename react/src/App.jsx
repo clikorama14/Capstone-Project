@@ -85,20 +85,13 @@ function App() {
         <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 
           <Routes>
-            <Route exact path="/Tops" element={<Tops />} />
+            <Route exact path="/" element={<Landing data={clothes}/>} />
+            <Route exact path="/Tops" element={<Tops addToCart={addToCart}/>} />
             <Route exact path="/Bottoms" element={<Bottoms />} />
             <Route exact path="/Shoes" element={<Shoes />} />
             <Route exact path="/Checkout" element={<Checkout cartItems={cartItems}/>} />
           </Routes>
         </main>
-
-        <div className="shop-container">
-          <div className="product-list">
-            {clothes.map(product => (
-              <Product key={product.id} data={product} addToCart={addToCart} />
-            ))}
-          </div>
-        </div>
 
       </Router>
     </>
