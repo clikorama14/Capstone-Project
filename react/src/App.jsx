@@ -13,6 +13,8 @@ import Bottoms from './components/Bottoms';
 import Shoes from './components/Shoes';
 import Landing from './components/Landing';
 import Checkout from './components/Checkout';
+//import CartList from './components/CartList';
+import Product from './components/Product';
 
 function App() {
   const [clothes, setClothes] = useState([]);
@@ -33,6 +35,17 @@ function App() {
     };
     fetchData();
   }, []);
+
+  const products = [
+    { id: '10998765678', name: 'Flats', price: 50 },
+    // Add more products as needed
+  ];
+
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = (product) => {
+    setCartItems([...cartItems, product]);
+  };
 
   return (
     <>
@@ -72,13 +85,20 @@ function App() {
         <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 
           <Routes>
-            <Route exact path="/" element={<Landing data={ clothes} />} />
             <Route exact path="/Tops" element={<Tops />} />
             <Route exact path="/Bottoms" element={<Bottoms />} />
             <Route exact path="/Shoes" element={<Shoes />} />
-            <Route exact path="/Checkout" element={<Checkout />} />
+            <Route exact path="/Checkout" element={<Checkout cartItems={cartItems}/>} />
           </Routes>
         </main>
+
+        <div className="shop-container">
+          <div className="product-list">
+            {clothes.map(product => (
+              <Product key={product.id} data={product} addToCart={addToCart} />
+            ))}
+          </div>
+        </div>
 
       </Router>
     </>
