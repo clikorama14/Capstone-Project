@@ -13,6 +13,7 @@ import Bottoms from './components/Bottoms';
 import Shoes from './components/Shoes';
 import Landing from './components/Landing';
 import Checkout from './components/Checkout';
+import { CartProvider } from './components/CartContext';
 
 function App() {
   const [clothes, setClothes] = useState([]);
@@ -71,13 +72,17 @@ function App() {
 
         <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 
-          <Routes>
-            <Route exact path="/" element={<Landing data={ clothes} />} />
-            <Route exact path="/Tops" element={<Tops />} />
-            <Route exact path="/Bottoms" element={<Bottoms />} />
-            <Route exact path="/Shoes" element={<Shoes />} />
-            <Route exact path="/Checkout" element={<Checkout />} />
-          </Routes>
+          <CartProvider>
+
+            <Routes>
+              <Route exact path="/" element={<Landing data={clothes} />} />
+              <Route exact path="/Tops" element={<Tops />} />
+              <Route exact path="/Bottoms" element={<Bottoms />} />
+              <Route exact path="/Shoes" element={<Shoes />} />
+              <Route exact path="/Checkout" element={<Checkout />} />
+            </Routes>
+          </CartProvider>
+
         </main>
 
       </Router>

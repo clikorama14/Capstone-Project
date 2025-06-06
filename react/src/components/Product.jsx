@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext  } from 'react';
 import Shirt from '../assets/images/orange_button_dnw.png';
 import Blue_Polo from '../assets/images/polo.png';
 import Blazer from '../assets/images/blazer.png';
@@ -9,13 +9,14 @@ import Loafers from '../assets/images/loafers.png';
 import Flats from '../assets/images/flats.png';
 import White_Pants from '../assets/images/white_pants.png';
 import Khakis from '../assets/images/khakis.png';
+import { CartContext } from './CartContext';
 
 const Product = ({ data }) => {
-    const [addedToCart, setAddedToCart] = useState(false);
+  const { addToCart } = useContext(CartContext);
 
-    const addToCart = () => {
-        setAddedToCart(true)
-    }
+  const handleAddToCart = () => {
+    addToCart(data);
+  };
 
     return (
         <div className="card card-background" style={{ flex: '1', minWidth: '300px', maxWidth: '45%' }}>
@@ -31,14 +32,12 @@ const Product = ({ data }) => {
                 {data.id === '9' && <img src={Gray_Blazer} style={{ width: '100%', maxWidth: '100px' }} />}
                 {data.id === '10' && <img src={Shirt} alt="Shirt" style={{ width: '100%', maxWidth: '100px' }} />}
 
-
-
                 <div className="card-text">{data.name}</div>
                 <div className="card-text">${data.price}</div>
                 
             </div>
             <div className="card-button" style={{ paddingBottom: '20px' }}>
-                <button type="addToCart" className="btn btn-primary" onClick={addToCart}>Add to Cart</button>
+                <button type="addToCart" className="btn btn-primary" onClick={handleAddToCart}>Add to Cart</button>
             </div>
         </div>
 
